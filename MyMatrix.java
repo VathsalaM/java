@@ -30,6 +30,11 @@ public class MyMatrix {
 			Arrays.fill(this.matrix[i],value);
 		}
 	}
+
+	public void MyFill(int value,int row,int coloumn){
+		Arrays.fill(this.matrix[row],coloumn,coloumn,value);
+	}
+
 	// public String toString(){
 	// 	String str = "";
 	// 	for(int i=0;i<this.Mylength("rows");i++){
