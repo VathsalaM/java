@@ -24,4 +24,17 @@ public class MyMatrix {
 		}
 		return result;
 	}
+
+	public void MyFill(int value){
+		for (int i=0;i<this.Mylength("rows");i++ ) {
+			Arrays.fill(this.matrix[i],value);
+		}
+	}
+	// public String toString(){
+	// 	String str = "";
+	// 	for(int i=0;i<this.Mylength("rows");i++){
+	// 		str+=Arrays.toString(this.matrix[i]);
+	// 	}
+	// 	return str;
+	// }
 }
