@@ -4,14 +4,6 @@ import org.junit.Test;
 import java.util.Arrays;
 
 public class MatrixTest {
-	@Test
-	public void create_matrix_with_values(){
-		int[][] values = {{1,2,3},{4,5,6}};
-		Matrix matrix = new Matrix(2,3,values);
-		int[][] values_a = {{1,2,3},{4,5,6}};
-		Matrix expectedMatrix = new Matrix(2,3,values_a);
-		assertTrue(matrix.isSameAs(expectedMatrix));
-	}
 
 	@Test
 	public void populate_with_int(){
@@ -35,5 +27,16 @@ public class MatrixTest {
 		assertTrue(matrix.isSameAs(expectedMatrix));
 	}
 
-	
+	@Test
+	public void add_two_matrices(){
+		Matrix matrix = new Matrix(2,3);
+		int[][] values_a = {{0,5,2},{1,7,3}};
+		int[][] values_b = {{1,1,1},{1,1,1}};
+		int[][] values_c = {{1,6,3},{2,8,4}};
+		Matrix matrixOne = new Matrix(2,3,values_a);
+		Matrix matrixTwo = new Matrix(2,3,values_b);
+		Matrix expectedMatrix = new Matrix(2,3,values_c);
+		Matrix actualMatrix = matrix.add(matrixOne).add(matrixTwo);
+		assertTrue(actualMatrix.isSameAs(expectedMatrix));
+	}
 }
