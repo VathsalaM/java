@@ -2,10 +2,11 @@ package one;
 
 import three.*;
 import two.*;
+// import Math.*;
 
 class Names{
 	public static void main(String[] args) {
-		two.Name n = new two.Name("Stupid");
-		System.out.println(n);
+		Name n = new Name("Stupid");
+		System.out.println(n+"\t"+Math.pow(2,3));
 	}
 }
