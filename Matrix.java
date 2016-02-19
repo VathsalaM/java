@@ -13,27 +13,14 @@ class Matrix {
 		this.matrix = new int[rows][columns];
 	}
 
-	public Matrix(int rows,int columns,int[][] values){
-		this.rows = rows;
-		this.columns = columns;
-		this.done = true;
-		this.matrix = new int[rows][columns];
-		for(int i=0;i<rows;i++)
-			for(int j=0;j<columns;j++)
-				this.matrix[i][j] = values[i][j];
-
-	}
-
 	public void fill(int value){
-		if(!done)
-			for (int i=0;i<this.rows;i++ ) {
-				Arrays.fill(this.matrix[i],value);
-			}
+		for (int i=0;i<this.rows;i++ ) {
+			Arrays.fill(this.matrix[i],value);
+		}
 	}
 
 	public void fill(int value,int row,int column){
-		if(!done)
-			this.matrix[row][column] = value;
+		this.matrix[row][column] = value;
 	}
 
 	public Matrix add(Matrix otherMatrix){
@@ -63,4 +50,23 @@ class Matrix {
 		}
 		return isEqual;
 	}
+
+
+	public Matrix multiply(Matrix otherMatrix){
+		if(isDimensionSame(otherMatrix.columns,otherMatrix.rows)){
+			Matrix result = new Matrix(rows,columns);
+			for(int i=0;i<rows;i++){
+				for(int j=0;j<rows;j++){
+					int sum = 0;
+					for(int k=0;k<columns;k++){
+						sum+=this.matrix[i][k]*otherMatrix.matrix[k][j];
+					}
+					result.fill(sum,i,j);
+				}
+			}
+			return result;
+		}
+		return new Matrix(0,0);
+	}
+
 }
